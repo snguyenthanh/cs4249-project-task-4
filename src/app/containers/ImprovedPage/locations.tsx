@@ -9,8 +9,8 @@ const locations_amphitheatre = [
       'Open Area (near The Study)',
       'Open Area (near Writting Unit)',
       'Open Area (outside SR4 & 5)',
-      'Town Green'
-    ]
+      'Town Green',
+    ],
   },
   {
     value: 'Stephen Riady Centre',
@@ -21,8 +21,8 @@ const locations_amphitheatre = [
       'Internal Street Level 1 outside LTs',
       'Internal Street Level 2',
       'Internal Street Level 3',
-      'UT Foyer'
-    ]
+      'UT Foyer',
+    ],
   },
   {
     value: 'Town Plaza',
@@ -30,10 +30,10 @@ const locations_amphitheatre = [
       'Graduate Residence Walkway',
       'Town Plaza Auditorium',
       'Town Plaza Informal Study Area',
-      'Town Plaza Outdoor Area'
-    ]
-  }
-]
+      'Town Plaza Outdoor Area',
+    ],
+  },
+];
 
 const locations_conference = [
   {
@@ -78,9 +78,9 @@ const locations_conference = [
       // 'PC Commons Learning Pod 7',
       // 'PC Commons Learning Pod 8',
       // 'PC Commons Learning Pod 9'
-    ]
-  }
-]
+    ],
+  },
+];
 
 const locations_performing_arts = [
   {
@@ -88,10 +88,10 @@ const locations_performing_arts = [
     subOptions: [
       'Dance Altelier 1',
       'Dance Studio',
-      'Function Hall/Dance Atelier 2'
-    ]
-  }
-]
+      'Function Hall/Dance Atelier 2',
+    ],
+  },
+];
 
 const locations_performing_spaces = [
   {
@@ -106,19 +106,15 @@ const locations_performing_spaces = [
       'Practice Room 7',
       'Practice Room 8',
       'Practice Room 9',
-      'Studio 1-6'
-    ]
-  }
-]
+      'Studio 1-6',
+    ],
+  },
+];
 
 const locations_seminar = [
   {
     value: 'Education Resource Centre',
-    subOptions: [
-      'Seminar Room 9',
-      'Seminar Room 10',
-      'Seminar Room 11',
-    ]
+    subOptions: ['Seminar Room 9', 'Seminar Room 10', 'Seminar Room 11'],
   },
   {
     value: 'Stephen Riady Centre',
@@ -131,8 +127,8 @@ const locations_seminar = [
       'Seminar Room 6',
       'Seminar Room 7',
       'Seminar Room 8',
-      'Seminar Room 9'
-    ]
+      'Seminar Room 9',
+    ],
   },
   {
     value: 'Town Plaza',
@@ -143,31 +139,31 @@ const locations_seminar = [
       'Seminar Room 4',
       'Seminar Room 5',
       'Seminar Room 6',
-      'Seminar Room 7'
-    ]
-  }
-]
+      'Seminar Room 7',
+    ],
+  },
+];
 
 export const facilities = [
   // <option selected="selected" value="">Please select a facility type</option>
   {
-    'value': 'Amphitheatre / Open Space',
-    'locations': locations_amphitheatre
+    value: 'Amphitheatre / Open Space',
+    locations: locations_amphitheatre,
   },
   {
-    'value': 'Conference / Meeting Room',
-    'locations': locations_conference
+    value: 'Conference / Meeting Room',
+    locations: locations_conference,
   },
   {
-    'value': '(Music Studio / Practice Room) - Performing Arts Space',
-    'locations': locations_performing_arts
+    value: '(Music Studio / Practice Room) - Performing Arts Space',
+    locations: locations_performing_arts,
   },
   {
-    'value': '(Music Studio / Practice Room) - Performing Spaces',
-    'locations': locations_performing_spaces
+    value: '(Music Studio / Practice Room) - Performing Spaces',
+    locations: locations_performing_spaces,
   },
   {
-    'value': 'Seminar Room',
-    'locations': locations_seminar
-  }
-]
+    value: 'Seminar Room',
+    locations: locations_seminar,
+  },
+];

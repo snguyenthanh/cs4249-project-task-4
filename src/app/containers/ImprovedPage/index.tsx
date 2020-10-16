@@ -7,7 +7,6 @@
 import React, { memo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
 
 import { useInjectReducer } from 'utils/redux-injectors';
 import { reducer, sliceKey } from './slice';
@@ -29,11 +28,14 @@ export const ImprovedPage = memo((props: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch();
 
-  const [facility, setFacility] = useState<any>('Please select a facility type');
+  const [facility, setFacility] = useState<any>(
+    'Please select a facility type',
+  );
   const [location, setLocation] = useState<any>('');
   const [dates, setDates] = useState<any>([]);
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
-  const chosenFacility: any = facility !== null ? facilities.find(item => item.value === facility) : {};
+  const chosenFacility: any =
+    facility !== null ? facilities.find(item => item.value === facility) : {};
 
   return (
     <div className="bg-gray-100 p-6 h-screen font-sans">
@@ -44,13 +46,23 @@ export const ImprovedPage = memo((props: Props) => {
 
       <div className="max-w-6xl h-56 min-h-full p-6 rounded overflow-hidden shadow-md">
         <h1 className="flex-1 text-3xl font-medium">New Booking</h1>
-        <h2 className="flex-1 mt-4 mb-2 text-lg font-medium">Faculty / Resource Type*</h2>
-        <Dropdown zIndex={40} value={facility} options={facilities} onClick={value => {
-          setFacility(value);
-          setLocation('');
-        }} />
+        <h2 className="flex-1 mt-4 mb-2 text-lg font-medium">
+          Faculty / Resource Type*
+        </h2>
+        <Dropdown
+          value={facility}
+          options={facilities}
+          onClick={value => {
+            setFacility(value);
+            setLocation('');
+          }}
+        />
         <h2 className="flex-1 mt-4 mb-2 text-lg font-medium">Location*</h2>
-        <Dropdown value={location} options={chosenFacility ? chosenFacility.locations : []} onClick={value => setLocation(value)} />
+        <Dropdown
+          value={location}
+          options={chosenFacility ? chosenFacility.locations : []}
+          onClick={value => setLocation(value)}
+        />
         <br />
         <div>
           <h2 className="flex-1 mt-4 mb-2 text-lg font-medium">Date</h2>
@@ -76,7 +88,9 @@ export const ImprovedPage = memo((props: Props) => {
             }}
             closeCalendar={() => setOpenCalendar(false)}
           />
-        ) : <div />}
+        ) : (
+          <div />
+        )}
 
         <span className="inline-flex rounded-md shadow-sm mt-32">
           <button
@@ -92,5 +106,3 @@ export const ImprovedPage = memo((props: Props) => {
     </div>
   );
 });
-
-const Div = styled.div``;
