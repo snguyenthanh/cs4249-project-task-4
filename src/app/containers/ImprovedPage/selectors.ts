@@ -9,3 +9,8 @@ export const selectImprovedPage = createSelector(
   [selectDomain],
   improvedPageState => improvedPageState,
 );
+
+export const selectUid = createSelector(
+  [selectDomain],
+  improvedPageState => improvedPageState.uid,
+);

@@ -5,13 +5,12 @@ import './Dropdown.css';
 interface Props {
   value: string;
   options: Array<any>;
+  component: string;
   onClick: (any) => any;
+  onLogging: (any) => any;
 }
 
 export default function Dropdown(props: Props) {
-  // const [value, setDropdownValue] = useState<any>(
-  //   'Please select a facility type',
-  // );
   const [hidden, setHidden] = useState<boolean>(false);
 
   return (
@@ -41,6 +40,11 @@ export default function Dropdown(props: Props) {
           <DropdownOption
             onClick={value => {
               props.onClick(value);
+              props.onLogging({
+                eventname: 'click',
+                target: props.component,
+                info: `[${props.component}] Choose the option: ${value}`,
+              });
               setHidden(true);
               setTimeout(() => {
                 setHidden(false);

@@ -1,4 +1,6 @@
 /* --- STATE --- */
-export interface ImprovedPageState {}
+export interface ImprovedPageState {
+  uid: string;
+}
 
 export type ContainerState = ImprovedPageState;
