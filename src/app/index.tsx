@@ -20,10 +20,10 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
+        titleTemplate="CS4249 - Group 4: %s"
+        defaultTitle="CS4249 - Group 4"
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="CS4249 - Group 4 Pilot" />
       </Helmet>
 
       <Switch>
