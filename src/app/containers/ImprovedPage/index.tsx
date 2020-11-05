@@ -26,11 +26,11 @@ const arrayToOptions = (strings: any) => {
   console.log(strings);
   const output = strings.map(item => {
     return {
-      value: item
+      value: item,
     };
   });
   return output;
-}
+};
 
 export const ImprovedPage = memo((props: any) => {
   useInjectReducer({ key: sliceKey, reducer: reducer });
@@ -52,8 +52,6 @@ export const ImprovedPage = memo((props: any) => {
   const chosenFacility: any =
     facility !== null ? facilities.find(item => item.value === facility) : {};
 
-  const resourceOptions: any = [];
-
   const onLogging = payload => {
     const { eventname, target, info } = payload;
     dispatch(
@@ -68,21 +66,26 @@ export const ImprovedPage = memo((props: any) => {
   const queryParams: any = queryString.parse(props.location.search);
 
   // Use new menu by default
-  const useMenuA: boolean = queryParams.use_menu_a && queryParams.use_new_menu.toLowerCase() === 'true';
+  const useMenuA: boolean =
+    queryParams.use_menu_a && queryParams.use_new_menu.toLowerCase() === 'true';
   const isLarge: boolean = queryParams.size === 'large';
   const listLength: string = queryParams.list_length;
 
   return (
     <div className="bg-gray-100 p-6 h-screen font-sans">
       <Helmet>
-        <title>ImprovedPage</title>
-        <meta name="description" content="Description of ImprovedPage" />
+        <title>UTown Booking Facilities</title>
+        <meta name="description" content="UTown Booking Facilities" />
       </Helmet>
 
       <div className="bg-gray-100 max-w-6xl h-56 min-h-full p-6 rounded overflow-hidden shadow-md mx-auto">
         <h1 className="flex-1 text-3xl font-medium">New Booking</h1>
         <br />
-        <h2 className={`flex-1 mb-2 font-medium ${isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'}`}>
+        <h2
+          className={`flex-1 mb-2 font-medium ${
+            isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'
+          }`}
+        >
           Facility / Resource Type*
         </h2>
         <Dropdown
@@ -100,7 +103,13 @@ export const ImprovedPage = memo((props: any) => {
 
         {useMenuA ? (
           <Fragment>
-            <h2 className={`flex-1 mb-2 font-medium ${isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'}`}>Location*</h2>
+            <h2
+              className={`flex-1 mb-2 font-medium ${
+                isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'
+              }`}
+            >
+              Location*
+            </h2>
             <Dropdown
               value={location}
               options={chosenFacility ? chosenFacility.locations : []}
@@ -113,7 +122,13 @@ export const ImprovedPage = memo((props: any) => {
           </Fragment>
         ) : (
           <Fragment>
-            <h2 className={`flex-1 mb-2 font-medium ${isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'}`}>Location*</h2>
+            <h2
+              className={`flex-1 mb-2 font-medium ${
+                isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'
+              }`}
+            >
+              Location*
+            </h2>
             <Dropdown
               value={location}
               options={chosenFacility ? chosenFacility.locations : []}
@@ -125,12 +140,24 @@ export const ImprovedPage = memo((props: any) => {
               listLength={listLength}
             />
 
-            <h2 className={`flex-1 mb-2 font-medium ${isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'}`}>Facility / Resource*</h2>
+            <h2
+              className={`flex-1 mb-2 font-medium ${
+                isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'
+              }`}
+            >
+              Facility / Resource*
+            </h2>
             <Dropdown
               value={resource}
-              options={chosenFacility && location ? (
-                arrayToOptions(chosenFacility.locations.find(item => item.value === location).subOptions)
-              ) : []}
+              options={
+                chosenFacility && location
+                  ? arrayToOptions(
+                      chosenFacility.locations.find(
+                        item => item.value === location,
+                      ).subOptions,
+                    )
+                  : []
+              }
               component="Facility / Resource"
               onClick={value => setResource(value)}
               large={isLarge}
@@ -140,7 +167,13 @@ export const ImprovedPage = memo((props: any) => {
           </Fragment>
         )}
 
-        <h2 className={`flex-1 mb-2 font-medium ${isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'}`}>Capacity</h2>
+        <h2
+          className={`flex-1 mb-2 font-medium ${
+            isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'
+          }`}
+        >
+          Capacity
+        </h2>
         <Dropdown
           value={capacity}
           options={[
@@ -159,7 +192,13 @@ export const ImprovedPage = memo((props: any) => {
         />
         <br />
         <div>
-          <h2 className={`flex-1 mb-2 font-medium ${isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'}`}>Date</h2>
+          <h2
+            className={`flex-1 mb-2 font-medium ${
+              isLarge ? 'mt-6 text-xl' : 'mt-4 text-lg'
+            }`}
+          >
+            Date
+          </h2>
           <div>
             <input
               className="inline-block form-input block w-56 sm:text-sm sm:leading-5 rounded-md shadow-sm"
@@ -221,14 +260,18 @@ export const ImprovedPage = memo((props: any) => {
             type="button"
             className={`inline-flex items-center px-6 py-3 text-base leading-6 font-medium rounded-md text-white
             bg-gradient-to-r from-green-400 to-green-700 hover:from-green-300 hover:to-green-600 focus:outline-none focus:shadow-outline-green
-            transition ease-in-out duration-150 ${isLarge ? 'h-20 text-2xl' : ''}`}
+            transition ease-in-out duration-150 ${
+              isLarge ? 'h-20 text-2xl' : ''
+            }`}
             onClick={() => {
               onLogging({
                 eventname: 'click',
                 target: 'Search Button',
                 info: 'Search button clicked',
               });
-              alert('Your submission has been recorded. You can safely close this website.');
+              alert(
+                'Your submission has been recorded. You can safely close this website.',
+              );
             }}
           >
             Search Availability

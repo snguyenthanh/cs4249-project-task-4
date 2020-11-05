@@ -27,7 +27,11 @@ export default function Dropdown(props: Props) {
         hidden ? 'pointer-events-none' : ''
       }`}
     >
-      <button className={`outline-none focus:outline-none border px-3 py-1 bg-white rounded-lg flex items-center min-w-32 ${props.large ? 'h-12 text-xl' : ''}`}>
+      <button
+        className={`outline-none focus:outline-none border px-3 py-1 bg-white rounded-lg flex items-center min-w-32 ${
+          props.large ? 'h-12 text-xl' : ''
+        }`}
+      >
         <span className="pr-1 flex-1">{props.value}</span>
         <span>
           <svg
