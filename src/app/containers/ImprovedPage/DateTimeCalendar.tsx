@@ -15,7 +15,8 @@ export default function DateTimeCalendar(props: Props) {
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div
           className="fixed inset-0 transition-opacity"
-          onClick={() => {
+          onClick={evt => {
+            evt.stopPropagation();
             props.closeCalendar();
             props.onLogging({
               eventname: 'click',
@@ -33,6 +34,7 @@ export default function DateTimeCalendar(props: Props) {
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
+          onClick={evt => evt.stopPropagation()}
         >
           <RangeCalendar
             mode={['date', 'date']}

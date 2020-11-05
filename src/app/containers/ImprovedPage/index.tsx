@@ -23,7 +23,6 @@ interface Props {}
 // Old UI: https://utownfbs.nus.edu.sg/utown/apptop.aspx
 
 const arrayToOptions = (strings: any) => {
-  console.log(strings);
   const output = strings.map(item => {
     return {
       value: item,
@@ -72,7 +71,16 @@ export const ImprovedPage = memo((props: any) => {
   const listLength: string = queryParams.list_length;
 
   return (
-    <div className="bg-gray-100 p-6 h-screen font-sans">
+    <div
+      className="bg-gray-100 p-6 h-screen font-sans"
+      onClick={() => {
+        onLogging({
+          eventname: 'click',
+          target: 'Background',
+          info: 'Misclick on the background',
+        });
+      }}
+    >
       <Helmet>
         <title>UTown Booking Facilities</title>
         <meta name="description" content="UTown Booking Facilities" />
@@ -202,7 +210,8 @@ export const ImprovedPage = memo((props: any) => {
           <div>
             <input
               className="inline-block form-input block w-56 sm:text-sm sm:leading-5 rounded-md shadow-sm"
-              onClick={() => {
+              onClick={evt => {
+                evt.stopPropagation();
                 setOpenCalendar(true);
                 onLogging({
                   eventname: 'click',
@@ -215,7 +224,8 @@ export const ImprovedPage = memo((props: any) => {
             <span className="inline-block mx-4">to</span>
             <input
               className="inline-block form-input block w-56 sm:text-sm sm:leading-5 rounded-md shadow-sm"
-              onClick={() => {
+              onClick={evt => {
+                evt.stopPropagation();
                 setOpenCalendar(true);
                 onLogging({
                   eventname: 'click',
@@ -263,7 +273,8 @@ export const ImprovedPage = memo((props: any) => {
             transition ease-in-out duration-150 ${
               isLarge ? 'h-20 text-2xl' : ''
             }`}
-            onClick={() => {
+            onClick={evt => {
+              evt.stopPropagation();
               onLogging({
                 eventname: 'click',
                 target: 'Search Button',

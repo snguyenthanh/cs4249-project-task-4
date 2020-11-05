@@ -15,7 +15,10 @@ export default function DropdownOption(props: Props) {
     return (
       <li
         className={`px-3 py-1 hover:bg-gray-100 ${large ? 'h-12 text-xl' : ''}`}
-        onClick={() => onClick(value)}
+        onClick={evt => {
+          evt.stopPropagation();
+          onClick(value);
+        }}
       >
         {value}
       </li>
@@ -46,7 +49,10 @@ export default function DropdownOption(props: Props) {
         {options.map(option => (
           <li
             className="px-3 py-1 hover:bg-gray-100"
-            onClick={() => onClick(option)}
+            onClick={evt => {
+              evt.stopPropagation();
+              onClick(option);
+            }}
           >
             {option}
           </li>
