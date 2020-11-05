@@ -66,7 +66,7 @@ export const ImprovedPage = memo((props: any) => {
 
   // Use new menu by default
   const useMenuA: boolean =
-    queryParams.use_menu_a && queryParams.use_new_menu.toLowerCase() === 'true';
+    queryParams.use_menu_a && queryParams.use_menu_a.toLowerCase() === 'true';
   const isLarge: boolean = queryParams.size === 'large';
   const listLength: string = queryParams.list_length;
 
