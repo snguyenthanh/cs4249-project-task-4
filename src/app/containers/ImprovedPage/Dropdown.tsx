@@ -6,20 +6,28 @@ interface Props {
   value: string;
   options: Array<any>;
   component: string;
+  ignoreSubOptions?: boolean;
+  large?: boolean;
+  listLength: string;
   onClick: (any) => any;
   onLogging: (any) => any;
 }
 
 export default function Dropdown(props: Props) {
   const [hidden, setHidden] = useState<boolean>(false);
+  let maxSize;
+  if (props.listLength === 'short') maxSize = 3;
+  else if (props.listLength === 'long') maxSize = 12;
+  else maxSize = 6;
 
+  const options = props.options.slice(0, maxSize);
   return (
     <div
       className={`group inline-block shadow-sm ${
         hidden ? 'pointer-events-none' : ''
       }`}
     >
-      <button className="outline-none focus:outline-none border px-3 py-1 bg-white rounded-lg flex items-center min-w-32">
+      <button className={`outline-none focus:outline-none border px-3 py-1 bg-white rounded-lg flex items-center min-w-32 ${props.large ? 'h-12 text-xl' : ''}`}>
         <span className="pr-1 flex-1">{props.value}</span>
         <span>
           <svg
@@ -36,7 +44,7 @@ export default function Dropdown(props: Props) {
         className="shadow-sm bg-white mt-2 border rounded-lg transform scale-0 group-hover:scale-100 absolute
       transition duration-150 ease-in-out origin-top min-w-32"
       >
-        {props.options.map(option => (
+        {options.map(option => (
           <DropdownOption
             onClick={value => {
               props.onClick(value);
@@ -50,6 +58,9 @@ export default function Dropdown(props: Props) {
                 setHidden(false);
               }, 100);
             }}
+            listLength={props.listLength}
+            ignoreSubOptions={props.ignoreSubOptions}
+            large={props.large}
             {...option}
           />
         ))}

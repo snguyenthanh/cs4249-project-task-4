@@ -4,19 +4,28 @@ interface Props {
   value: string;
   onClick: (any) => void;
   subOptions?: Array<string>;
+  ignoreSubOptions: boolean;
+  listLength: string;
+  large: boolean;
 }
 
 export default function DropdownOption(props: Props) {
-  const { value, subOptions, onClick } = props;
-  if (!subOptions)
+  const { value, subOptions, onClick, large, listLength } = props;
+  if (!subOptions || props.ignoreSubOptions)
     return (
       <li
-        className="px-3 py-1 hover:bg-gray-100"
+        className={`px-3 py-1 hover:bg-gray-100 ${large ? 'h-12 text-xl' : ''}`}
         onClick={() => onClick(value)}
       >
         {value}
       </li>
     );
+
+  let maxSize;
+  if (listLength === 'short') maxSize = 3;
+  else if (listLength === 'long') maxSize = 12;
+  else maxSize = 6;
+  const options = subOptions.slice(0, maxSize);
 
   return (
     <li className="rounded-lg relative px-3 py-1 hover:bg-gray-100">
@@ -34,7 +43,7 @@ export default function DropdownOption(props: Props) {
         </span>
       </button>
       <ul className="shadow-sm bg-white border rounded-lg absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left min-w-32">
-        {subOptions.map(option => (
+        {options.map(option => (
           <li
             className="px-3 py-1 hover:bg-gray-100"
             onClick={() => onClick(option)}
