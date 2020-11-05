@@ -4,7 +4,7 @@
  *
  */
 
-import React, { Fragment, memo, useState } from 'react';
+import React, { Fragment, memo, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
@@ -40,6 +40,27 @@ export const ImprovedPage = memo((props: any) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const queryParams: any = queryString.parse(props.location.search);
+
+    // Use new menu by default
+    let useMenuA: boolean =
+      queryParams.use_menu_a && queryParams.use_menu_a.toLowerCase() === 'true';
+    const isLarge: boolean = queryParams.size === 'large';
+    let listLength: string = queryParams.list_length;
+
+    if (useMenuA === undefined || useMenuA === null) useMenuA = true;
+    if (listLength === undefined || listLength === null) listLength = 'medium';
+
+    dispatch(
+      actions.changeQueryParams({
+        use_menu_a: useMenuA.toString(),
+        list_length: listLength,
+        size: isLarge ? 'large' : 'small',
+      }),
+    );
+  }, [dispatch, props.location.search]);
+
   const [facility, setFacility] = useState<any>(
     'Please select a facility type',
   );
@@ -65,10 +86,13 @@ export const ImprovedPage = memo((props: any) => {
   const queryParams: any = queryString.parse(props.location.search);
 
   // Use new menu by default
-  const useMenuA: boolean =
+  let useMenuA: boolean =
     queryParams.use_menu_a && queryParams.use_menu_a.toLowerCase() === 'true';
   const isLarge: boolean = queryParams.size === 'large';
-  const listLength: string = queryParams.list_length;
+  let listLength: string = queryParams.list_length;
+
+  if (useMenuA === undefined || useMenuA === null) useMenuA = true;
+  if (listLength === undefined || listLength === null) listLength = 'medium';
 
   return (
     <div

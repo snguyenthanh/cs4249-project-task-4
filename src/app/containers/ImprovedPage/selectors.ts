@@ -14,3 +14,18 @@ export const selectUid = createSelector(
   [selectDomain],
   improvedPageState => improvedPageState.uid,
 );
+
+export const selectUseMenuA = createSelector(
+  [selectDomain],
+  improvedPageState => improvedPageState.use_menu_a,
+);
+
+export const selectListLength = createSelector(
+  [selectDomain],
+  improvedPageState => improvedPageState.list_length,
+);
+
+export const selectSize = createSelector(
+  [selectDomain],
+  improvedPageState => improvedPageState.size,
+);

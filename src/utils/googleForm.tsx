@@ -1,7 +1,19 @@
 export function sendNetworkLog(payload: any) {
-  const { uid, timestamp, eventname, target, info } = payload;
+  const {
+    uid,
+    timestamp,
+    eventname,
+    target,
+    info,
+    use_menu_a,
+    list_length,
+    size,
+  } = payload;
   const formid = 'e/1FAIpQLSeU2vA7dhi0UKX1AHdyA2Wxxlqeh9PFqAGw-fbMxopdNX-JWg';
   const data = {
+    'entry.2137025749': use_menu_a,
+    'entry.1991723819': list_length,
+    'entry.2105105215': size,
     'entry.1442720934': uid,
     'entry.1886377799': timestamp,
     'entry.552602046': eventname,
