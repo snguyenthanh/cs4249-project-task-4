@@ -96,7 +96,7 @@ export const ImprovedPage = memo((props: any) => {
 
   return (
     <div
-      className="bg-gray-100 p-6 h-screen font-sans"
+      className="p-6 font-sans"
       onClick={() => {
         onLogging({
           eventname: 'click',
@@ -110,7 +110,7 @@ export const ImprovedPage = memo((props: any) => {
         <meta name="description" content="UTown Booking Facilities" />
       </Helmet>
 
-      <div className="bg-gray-100 max-w-6xl h-56 min-h-full p-6 rounded overflow-hidden shadow-md mx-auto">
+      <div className="bg-gray-100 min-h-full p-6 rounded shadow-lg mx-auto">
         <h1 className="flex-1 text-3xl font-medium">New Booking</h1>
         <br />
         <h2
