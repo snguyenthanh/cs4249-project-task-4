@@ -31,7 +31,11 @@ export default function DropdownOption(props: Props) {
   const options = subOptions.slice(0, maxSize);
 
   return (
-    <li className="rounded-lg relative px-3 py-1 hover:bg-gray-100">
+    <li
+      className={`rounded-lg relative px-3 py-1 hover:bg-gray-100 ${
+        large ? 'h-12 text-xl' : ''
+      }`}
+    >
       <button className="w-full text-left flex items-center outline-none focus:outline-none">
         <span className="pr-1 flex-1">{value}</span>
         <span className="mr-auto">
@@ -48,7 +52,9 @@ export default function DropdownOption(props: Props) {
       <ul className="shadow-sm bg-white border rounded-lg absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left min-w-32">
         {options.map(option => (
           <li
-            className="px-3 py-1 hover:bg-gray-100"
+            className={`px-3 py-1 hover:bg-gray-100 ${
+              large ? 'h-12 text-xl' : ''
+            }`}
             onClick={evt => {
               evt.stopPropagation();
               onClick(option);
