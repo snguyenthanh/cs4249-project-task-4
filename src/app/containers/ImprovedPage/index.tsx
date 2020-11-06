@@ -16,7 +16,7 @@ import { improvedPageSaga } from './saga';
 
 import Dropdown from './Dropdown';
 import DateTimeCalendar from './DateTimeCalendar';
-import { facilities } from './locations';
+import { facilities, locations_conference_list } from './locations';
 
 interface Props {}
 
@@ -69,7 +69,7 @@ export const ImprovedPage = memo((props: any) => {
   const [dates, setDates] = useState<any>([]);
   const [capacity, setCapacity] = useState<any>(null);
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
-  const chosenFacility: any =
+  let chosenFacility: any =
     facility !== null ? facilities.find(item => item.value === facility) : {};
 
   const onLogging = payload => {
@@ -93,6 +93,12 @@ export const ImprovedPage = memo((props: any) => {
 
   if (useMenuA === undefined || useMenuA === null) useMenuA = true;
   if (listLength === undefined || listLength === null) listLength = 'medium';
+  if (
+    chosenFacility &&
+    chosenFacility.value === 'Conference / Meeting Room' &&
+    !useMenuA
+  )
+    chosenFacility.locations = locations_conference_list;
 
   return (
     <div
@@ -131,6 +137,7 @@ export const ImprovedPage = memo((props: any) => {
           large={isLarge}
           onLogging={onLogging}
           listLength={listLength}
+          useMenuA={useMenuA}
         />
 
         {useMenuA ? (
@@ -150,6 +157,7 @@ export const ImprovedPage = memo((props: any) => {
               onLogging={onLogging}
               large={isLarge}
               listLength={listLength}
+              useMenuA={useMenuA}
             />
           </Fragment>
         ) : (
@@ -170,6 +178,7 @@ export const ImprovedPage = memo((props: any) => {
               large={isLarge}
               ignoreSubOptions
               listLength={listLength}
+              useMenuA={useMenuA}
             />
 
             <h2
@@ -196,6 +205,7 @@ export const ImprovedPage = memo((props: any) => {
               onLogging={onLogging}
               listLength={listLength}
               isScrollable
+              useMenuA={useMenuA}
             />
           </Fragment>
         )}
@@ -222,6 +232,7 @@ export const ImprovedPage = memo((props: any) => {
           onClick={value => setCapacity(value)}
           onLogging={onLogging}
           listLength={listLength}
+          useMenuA={useMenuA}
         />
         <br />
         <div>

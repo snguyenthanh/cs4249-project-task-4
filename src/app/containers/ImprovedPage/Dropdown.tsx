@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DropdownOption from './DropdownOption';
 import './Dropdown.css';
+import DropdownOptionMenuA from './DropdownOptionMenuA';
 
 interface Props {
   value: string;
@@ -12,6 +13,7 @@ interface Props {
   listLength: string;
   onClick: (any) => any;
   onLogging: (any) => any;
+  useMenuA: boolean;
 }
 
 export default function Dropdown(props: Props) {
@@ -52,26 +54,50 @@ export default function Dropdown(props: Props) {
         props.isScrollable ? 'h-24 overflow-y-scroll' : ''
       }`}
       >
-        {options.map(option => (
-          <DropdownOption
-            onClick={value => {
-              props.onClick(value);
-              props.onLogging({
-                eventname: 'click',
-                target: props.component,
-                info: `[${props.component}] Choose the option: ${value}`,
-              });
-              setHidden(true);
-              setTimeout(() => {
-                setHidden(false);
-              }, 100);
-            }}
-            listLength={props.listLength}
-            ignoreSubOptions={props.ignoreSubOptions}
-            large={props.large}
-            {...option}
-          />
-        ))}
+        {options.map(option => {
+          if (props.useMenuA)
+            return (
+              <DropdownOptionMenuA
+                onClick={value => {
+                  props.onClick(value);
+                  props.onLogging({
+                    eventname: 'click',
+                    target: props.component,
+                    info: `[${props.component}] Choose the option: ${value}`,
+                  });
+                  setHidden(true);
+                  setTimeout(() => {
+                    setHidden(false);
+                  }, 100);
+                }}
+                listLength={props.listLength}
+                ignoreSubOptions={props.ignoreSubOptions}
+                large={props.large}
+                {...option}
+              />
+            );
+
+          return (
+            <DropdownOption
+              onClick={value => {
+                props.onClick(value);
+                props.onLogging({
+                  eventname: 'click',
+                  target: props.component,
+                  info: `[${props.component}] Choose the option: ${value}`,
+                });
+                setHidden(true);
+                setTimeout(() => {
+                  setHidden(false);
+                }, 100);
+              }}
+              listLength={props.listLength}
+              ignoreSubOptions={props.ignoreSubOptions}
+              large={props.large}
+              {...option}
+            />
+          );
+        })}
       </ul>
     </div>
   );

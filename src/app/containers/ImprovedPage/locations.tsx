@@ -35,7 +35,7 @@ const locations_amphitheatre = [
   },
 ];
 
-const locations_conference = [
+export const locations_conference_list = [
   {
     value: 'Education Resource Centre',
     subOptions: [
@@ -55,6 +55,9 @@ const locations_conference = [
       // 'Ian & Peony Ferguson Study - Cubicle 14',
       // 'Ian & Peony Ferguson Study - Cubicle 15',
       // 'Ian & Peony Ferguson Study - Cubicle 16',
+
+      'PC Commons Learning Pod 1',
+      'PC Commons Learning Pod 2',
       'Mac Commons Learning Pod D1',
       'Mac Commons Learning Pod D2',
       'Mac Commons Learning Pod D3',
@@ -62,6 +65,66 @@ const locations_conference = [
       'Meeting Room 1',
       'Meeting Room 2',
       'Meeting Room 3',
+      'Meeting Room 4',
+      'Meeting Room 5',
+      // 'Meeting Room 6',
+      // 'Meeting Room 7',
+      // 'Meeting Room 8',
+      // 'Meeting Room 9',
+      // 'Meeting Room 10',
+      // 'PC Commons Learning Pod 3',
+      // 'PC Commons Learning Pod 4',
+      // 'PC Commons Learning Pod 5',
+      // 'PC Commons Learning Pod 6',
+      // 'PC Commons Learning Pod 7',
+      // 'PC Commons Learning Pod 8',
+      // 'PC Commons Learning Pod 9'
+    ],
+  },
+];
+
+const locations_conference = [
+  {
+    value: 'Education Resource Centre',
+    subOptions: [
+      {
+        value: 'PC Commons',
+        subOptions: ['Learning Pod 1', 'Learning Pod 2'],
+      },
+      {
+        value: 'Mac Commons',
+        subOptions: ['Learning Pod 1', 'Learning Pod 2'],
+      },
+      {
+        value: 'Meeting Room',
+        subOptions: ['Meeting Room 1', 'Meeting Room 2'],
+      },
+      // 'Ian & Peony Ferguson Study - Cubicle 1',
+      // 'Ian & Peony Ferguson Study - Cubicle 2',
+      // 'Ian & Peony Ferguson Study - Cubicle 3',
+      // 'Ian & Peony Ferguson Study - Cubicle 4',
+      // 'Ian & Peony Ferguson Study - Cubicle 5',
+      // 'Ian & Peony Ferguson Study - Cubicle 6',
+      // 'Ian & Peony Ferguson Study - Cubicle 7',
+      // 'Ian & Peony Ferguson Study - Cubicle 8',
+      // 'Ian & Peony Ferguson Study - Cubicle 9',
+      // 'Ian & Peony Ferguson Study - Cubicle 10',
+      // 'Ian & Peony Ferguson Study - Cubicle 11',
+      // 'Ian & Peony Ferguson Study - Cubicle 12',
+      // 'Ian & Peony Ferguson Study - Cubicle 13',
+      // 'Ian & Peony Ferguson Study - Cubicle 14',
+      // 'Ian & Peony Ferguson Study - Cubicle 15',
+      // 'Ian & Peony Ferguson Study - Cubicle 16',
+
+      // 'PC Commons Learning Pod 1',
+      // 'PC Commons Learning Pod 2',
+      // 'Mac Commons Learning Pod D1',
+      // 'Mac Commons Learning Pod D2',
+      // 'Mac Commons Learning Pod D3',
+      // 'Mac Commons Learning Pod D4',
+      // 'Meeting Room 1',
+      // 'Meeting Room 2',
+      // 'Meeting Room 3',
       // 'Meeting Room 4',
       // 'Meeting Room 5',
       // 'Meeting Room 6',
@@ -69,8 +132,6 @@ const locations_conference = [
       // 'Meeting Room 8',
       // 'Meeting Room 9',
       // 'Meeting Room 10',
-      'PC Commons Learning Pod 1',
-      'PC Commons Learning Pod 2',
       // 'PC Commons Learning Pod 3',
       // 'PC Commons Learning Pod 4',
       // 'PC Commons Learning Pod 5',
