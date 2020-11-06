@@ -195,6 +195,7 @@ export const ImprovedPage = memo((props: any) => {
               large={isLarge}
               onLogging={onLogging}
               listLength={listLength}
+              isScrollable
             />
           </Fragment>
         )}

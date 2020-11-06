@@ -8,6 +8,7 @@ interface Props {
   component: string;
   ignoreSubOptions?: boolean;
   large?: boolean;
+  isScrollable?: boolean;
   listLength: string;
   onClick: (any) => any;
   onLogging: (any) => any;
@@ -46,8 +47,10 @@ export default function Dropdown(props: Props) {
         </span>
       </button>
       <ul
-        className="shadow-sm bg-white mt-2 border rounded-lg transform scale-0 group-hover:scale-100 absolute
-      transition duration-150 ease-in-out origin-top min-w-32"
+        className={`shadow-sm bg-white mt-2 border rounded-lg transform scale-0 group-hover:scale-100 absolute
+      transition duration-150 ease-in-out origin-top min-w-32 ${
+        props.isScrollable ? 'h-24 overflow-y-scroll' : ''
+      }`}
       >
         {options.map(option => (
           <DropdownOption
