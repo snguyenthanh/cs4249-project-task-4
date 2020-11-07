@@ -86,7 +86,7 @@ export default function DropdownOptionMenuA(props: Props) {
                 </span>
               </button>
               <ul className="shadow-sm bg-white border rounded-lg absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left min-w-32">
-                {option.subOptions.map(subOption => (
+                {option.subOptions.slice(0, maxSize).map(subOption => (
                   <li
                     className={`px-3 py-1 hover:bg-gray-100 ${
                       large ? 'h-12 text-xl' : ''

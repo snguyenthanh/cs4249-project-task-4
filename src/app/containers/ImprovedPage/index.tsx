@@ -316,9 +316,7 @@ export const ImprovedPage = memo((props: any) => {
                 target: 'Search Button',
                 info: 'Search button clicked',
               });
-              alert(
-                'Your submission has been recorded. You can safely close this website.',
-              );
+              alert('Your submission has been recorded.');
             }}
           >
             Search Availability
