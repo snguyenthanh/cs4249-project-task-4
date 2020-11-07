@@ -103,14 +103,14 @@ const locations_conference = [
       {
         value: 'Mac Commons',
         subOptions: [
-          'Learning Pod 1',
-          'Learning Pod 2',
-          'Learning Pod 3',
-          'Learning Pod 4',
-          'Learning Pod 5',
-          'Learning Pod 6',
-          'Learning Pod 7',
-          'Learning Pod 8',
+          'Learning Pod D1',
+          'Learning Pod D2',
+          'Learning Pod D3',
+          'Learning Pod D4',
+          'Learning Pod D5',
+          'Learning Pod D6',
+          'Learning Pod D7',
+          'Learning Pod D8',
         ],
       },
       {
